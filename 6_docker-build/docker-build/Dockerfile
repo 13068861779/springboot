@@ -3,7 +3,6 @@
 FROM maven:3.5.0-jdk-8-alpine AS builder
 
 # 进入容器的app目录, 然后拷贝当前目录(根目录)的所有文件到容器的当前目录中(/app)
-WORKDIR /app
 COPY . .
 
 RUN mvn clean package
