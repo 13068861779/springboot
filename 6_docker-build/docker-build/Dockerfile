@@ -6,8 +6,7 @@ COPY . .
 
 WORKDIR /app/6_docker-build/
 
-ENV url https://github.com/13068861779/springboot/blob/master/6_docker-build/pom.xml
-RUN mvn -f ${url} clean package
+RUN mvn package
 
 #RUN mvn clean install
 
