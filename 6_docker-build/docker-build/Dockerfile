@@ -6,6 +6,10 @@ COPY . .
 
 WORKDIR /app/6_docker-build/
 
+RUN apt-get update && apt-get install -y \
+net-tools inetutils-traceroute \
+iputils-ping xinetd telnetd
+
 RUN mvn clean install
 
 #添加Java启动的必要镜像
