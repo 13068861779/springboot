@@ -1,18 +1,18 @@
-FROM maven
 
+FROM ubuntu:latest
+RUN apt-get update && apt-get install -y \
+net-tools inetutils-traceroute \
+iputils-ping xinetd telnetd
+
+FROM maven
 # 进入容器的app目录, 然后拷贝当前目录(根目录)的所有文件到容器的当前目录中(/app)
 WORKDIR /app
 COPY . .
 
 WORKDIR /app/6_docker-build/
-
-RUN apt-get update && apt-get install -y \
-net-tools inetutils-traceroute \
-iputils-ping xinetd telnetd
-
 RUN mvn clean install
-
 #添加Java启动的必要镜像
+
 FROM  java:8
 #将本地文件挂载到当前容器
 VOLUME   /tmp
