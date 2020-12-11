@@ -6,9 +6,10 @@ COPY . .
 
 WORKDIR /app/6_docker-build/
 
-#RUN mvn -f ./app/6_docker-build/pom.xml clean package
+ENV url /app/6_docker-build/pom.xml
+RUN mvn -f url clean package
 
-RUN mvn clean install
+#RUN mvn clean install
 
 #添加Java启动的必要镜像
 FROM  java:8
