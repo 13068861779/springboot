@@ -2,13 +2,11 @@
 # First stage: complete build environment
 FROM maven:3.5.0-jdk-8-alpine AS builder
 
-# add pom.xml and source code
-ADD ./pom.xml pom.xml
-ADD ./6_docker-build/src src/
+# 进入容器的app目录, 然后拷贝当前目录(根目录)的所有文件到容器的当前目录中(/app)
+WORKDIR /app
+COPY . .
 
 RUN mvn clean package
-
-
 
 FROM  java:8
 #将本地文件挂载到当前容器
