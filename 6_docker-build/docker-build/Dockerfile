@@ -4,7 +4,7 @@ FROM maven
 WORKDIR /web
 COPY . .
 
-RUN cd /6_docker-build
+RUN cd /web/6_docker-build
 RUN mvn clean install
 
 #添加Java启动的必要镜像
