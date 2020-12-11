@@ -1,5 +1,6 @@
 FROM maven
-RUN cd 6_docker-build && mvn clean install
+RUN cd /6_docker-build
+RUN mvn clean install
 
 #添加Java启动的必要镜像
 FROM  java:8
