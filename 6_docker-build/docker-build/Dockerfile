@@ -1,4 +1,4 @@
-
+FROM  java:8
 # First stage: complete build environment
 FROM maven:3.5.0-jdk-8-alpine AS builder
 
@@ -7,7 +7,7 @@ COPY . .
 
 RUN mvn clean package
 
-FROM  java:8
+
 #将本地文件挂载到当前容器
 VOLUME   /tmp
 #复制jar文件和配置文件所在的目录到容器里
