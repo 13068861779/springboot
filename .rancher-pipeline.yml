@@ -3,7 +3,7 @@ stages:
   steps:
   - runScriptConfig:
       image: maven:3-jdk-8
-      shellScript: 'cd 6_docker-build && mvn clean '
+      shellScript: cd 6_docker-build && mvn clean install
 - name: docker
   steps:
   - publishImageConfig:
