@@ -1,4 +1,9 @@
 FROM maven
+
+# 进入容器的app目录, 然后拷贝当前目录(根目录)的所有文件到容器的当前目录中(/app)
+WORKDIR /web
+COPY . .
+
 RUN cd /6_docker-build
 RUN mvn clean install
 
