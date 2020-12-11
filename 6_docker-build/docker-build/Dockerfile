@@ -6,7 +6,7 @@ COPY . .
 
 
 WORKDIR /app/6_docker-build
-COPY ./pom.xml .
+COPY ./6_docker-build/pom.xml .
 
 RUN mvn -f pom.xml clean package
 
