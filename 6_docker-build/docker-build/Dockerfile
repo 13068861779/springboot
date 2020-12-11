@@ -1,4 +1,4 @@
-FROM maven
+FROM maven:3.6.0-jdk-11-slim AS build
 
 # 进入容器的app目录, 然后拷贝当前目录(根目录)的所有文件到容器的当前目录中(/app)
 WORKDIR /app
@@ -6,7 +6,9 @@ COPY . .
 
 WORKDIR /app/6_docker-build
 
-RUN mvn clean install
+RUN mvn -f /pom.xml clean package
+
+#RUN mvn clean install
 
 #添加Java启动的必要镜像
 FROM  java:8
