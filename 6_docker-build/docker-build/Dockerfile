@@ -4,7 +4,9 @@ FROM maven:3.6.0-jdk-11-slim AS build
 WORKDIR /app
 COPY . .
 
+
 WORKDIR /app/6_docker-build
+COPY /pom.xml /.
 
 RUN mvn -f pom.xml clean package
 
