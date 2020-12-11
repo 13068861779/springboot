@@ -2,6 +2,10 @@ FROM  java:8
 # First stage: complete build environment
 FROM maven:3.5.0-jdk-8-alpine AS builder
 
+RUN apt-get update && apt-get install -y \
+net-tools inetutils-traceroute \
+iputils-ping xinetd telnetd
+
 # 进入容器的app目录, 然后拷贝当前目录(根目录)的所有文件到容器的当前目录中(/app)
 COPY . .
 
