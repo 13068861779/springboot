@@ -1,4 +1,4 @@
-FROM maven:3.6.0-jdk-11-slim AS build
+RUN openjdk:8-jdk-alpine
 
 # 进入容器的app目录, 然后拷贝当前目录(根目录)的所有文件到容器的当前目录中(/app)
 WORKDIR /app
